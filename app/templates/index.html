@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Recent Log Entries</h1>
+    {% for log in logs %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ log.child_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }} - {{ log.category }}
+                </h6>
+                <p class="card-text">{{ log.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
